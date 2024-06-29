@@ -40,6 +40,9 @@ v_suitable_disks=()
 c_deb_packages_repo=https://deb.debian.org/debian
 c_deb_security_repo=https://deb.debian.org/debian-security
 
+# Add the debconf preconfiguration for libc6 restart without asking
+echo "libc6 libraries/restart-without-asking boolean true" | debconf-set-selections
+
 c_default_zfs_arc_max_mb=250
 c_default_bpool_tweaks="-o ashift=12 -O compression=lz4"
 c_default_rpool_tweaks="-o ashift=12 -O acltype=posixacl -O compression=zstd-9 -O dnodesize=auto -O relatime=on -O xattr=sa -O normalization=formD"
