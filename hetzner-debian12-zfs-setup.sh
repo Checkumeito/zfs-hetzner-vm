@@ -882,4 +882,4 @@ echo "======= unmounting filesystems and zfs pools =========="
 unmount_and_export_fs
 
 echo "======== setup complete, rebooting ==============="
-reboot
+echo "Please manually reboot"
