@@ -53,6 +53,10 @@ c_install_log=$c_log_dir/install.log
 c_lsb_release_log=$c_log_dir/lsb_release.log
 c_disks_log=$c_log_dir/disks.log
 
+function chroot_execute {
+  chroot $c_zfs_mount_dir bash -c "$1"
+}
+
 function activate_debug {
   mkdir -p "$c_log_dir"
 
@@ -400,10 +404,6 @@ function determine_kernel_variant {
   if dmidecode | grep -q vServer; then
     v_kernel_variant="-cloud"
   fi
-}
-
-function chroot_execute {
-  chroot $c_zfs_mount_dir bash -c "$1"
 }
 
 function unmount_and_export_fs {
